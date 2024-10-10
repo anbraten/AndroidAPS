@@ -43,3 +43,9 @@ include ':pump:virtual'
 include ':implementation'
 include ':ui'
 include ':workflow'
+
+setBinding(new Binding([gradle: this]))                                // new
+evaluate(new File(                                                     // new
+    settingsDir.parentFile,                                            // new
+    'flutter_module/.android/include_flutter.groovy'                   // new
+))
