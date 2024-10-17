@@ -1,5 +1,5 @@
 plugins {
-    id("com.android.library")
+    alias(libs.plugins.android.library)
     id("kotlin-android")
     id("kotlin-kapt")
     id("android-module-dependencies")
@@ -15,8 +15,20 @@ android {
 }
 
 dependencies {
+    implementation(project(":core:data"))
     implementation(project(":core:interfaces"))
+    implementation(project(":core:keys"))
 
-    kapt(Libs.Dagger.compiler)
-    kapt(Libs.Dagger.androidProcessor)
+    //Logger
+    api(Libs.Logging.slf4jApi)
+    api(Libs.Logging.logbackAndroid)
+
+    api(Libs.androidSvg)
+
+    api(libs.io.reactivex.rxjava3.rxandroid)
+    api(Libs.jodaTimeAndroid)
+
+    api(libs.com.google.dagger.android.support)
+    kapt(libs.com.google.dagger.compiler)
+    kapt(libs.com.google.dagger.android.processor)
 }

@@ -100,6 +100,8 @@ allprojects {
 dependencies {
     implementation(project(":shared:impl"))
     implementation(project(":core:interfaces"))
+    implementation(project(":core:keys"))
+    implementation(project(":core:ui"))
 
     implementation(Libs.AndroidX.appCompat)
     implementation(Libs.AndroidX.core)
@@ -111,20 +113,20 @@ dependencies {
 
     testImplementation(project(":shared:tests"))
 
-    compileOnly(Libs.Google.Android.Wearable.wearable)
-    implementation(Libs.Google.Android.Wearable.wearableSupport)
-    implementation(Libs.Google.Android.PlayServices.wearable)
+    compileOnly(libs.com.google.android.wearable)
+    implementation(libs.com.google.android.wearable.support)
+    implementation(libs.com.google.android.gms.playservices.wearable)
     implementation(files("${rootDir}/wear/libs/ustwo-clockwise-debug.aar"))
     implementation(files("${rootDir}/wear/libs/wearpreferenceactivity-0.5.0.aar"))
     implementation(files("${rootDir}/wear/libs/hellocharts-library-1.5.8.aar"))
 
-    implementation(Libs.KotlinX.coroutinesCore)
-    implementation(Libs.KotlinX.coroutinesAndroid)
-    implementation(Libs.KotlinX.coroutinesGuava)
-    implementation(Libs.KotlinX.coroutinesPlayServices)
-    implementation(Libs.KotlinX.datetime)
-    implementation(Libs.Kotlin.stdlibJdk8)
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.kotlinx.coroutines.guava)
+    implementation(libs.kotlinx.coroutines.play.services)
+    implementation(libs.kotlinx.datetime)
+    implementation(libs.kotlin.stdlib.jdk8)
 
-    kapt(Libs.Dagger.androidProcessor)
-    kapt(Libs.Dagger.compiler)
+    kapt(libs.com.google.dagger.android.processor)
+    kapt(libs.com.google.dagger.compiler)
 }

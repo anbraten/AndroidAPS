@@ -1,5 +1,5 @@
 plugins {
-    id("com.android.library")
+    alias(libs.plugins.android.library)
     id("kotlin-android")
     id("android-module-dependencies")
     id("test-module-dependencies")
@@ -20,11 +20,12 @@ android {
 
 dependencies {
 
-    api(Libs.KotlinX.coroutinesCore)
-    api(Libs.KotlinX.datetime)
+    api(platform(libs.kotlinx.coroutines.bom))
+    api(libs.kotlinx.coroutines.core)
+    api(libs.kotlinx.datetime)
     api(Libs.AndroidX.core)
 
     testImplementation(kotlin("test"))
     testImplementation(Libs.kotlinTestRunner)
-    testRuntimeOnly(Libs.JUnit.jupiterEngine)
+    testRuntimeOnly(libs.org.junit.jupiter.engine)
 }

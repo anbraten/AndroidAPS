@@ -1,5 +1,5 @@
 plugins {
-    id("com.android.library")
+    alias(libs.plugins.android.library)
     id("kotlin-android")
     id("kotlin-kapt")
     id("android-module-dependencies")
@@ -15,20 +15,20 @@ android {
 }
 
 dependencies {
-    implementation(project(":pump:eopatch-core"))
-    implementation(project(":core:libraries"))
+    implementation(project(":core:data"))
     implementation(project(":core:interfaces"))
-    implementation(project(":core:main"))
+    implementation(project(":core:libraries"))
     implementation(project(":core:utils"))
     implementation(project(":core:ui"))
-    implementation(project(":database:entities"))
+    implementation(project(":pump:eopatch-core"))
 
-    api(Libs.Google.guava)
+    api(libs.com.google.guava)
 
     //RxAndroidBle
+    api(libs.io.reactivex.rxjava3.rxandroid)
     api(Libs.rxandroidBle)
     api(Libs.rx3ReplayingShare)
 
-    kapt(Libs.Dagger.compiler)
-    kapt(Libs.Dagger.androidProcessor)
+    kapt(libs.com.google.dagger.compiler)
+    kapt(libs.com.google.dagger.android.processor)
 }
